@@ -100,7 +100,6 @@ $(document).ready(function () {
       $("#userphoto").removeClass("d-none");
       $("#username").removeClass("d-none");
       $("#login").addClass("d-none");
-      $("#login").removeClass("d-block");
       $("#logout").removeClass("d-none");
       // console.log("ok");
       // 當有人打字的時候，修改chatroom.typing的狀態
@@ -127,7 +126,6 @@ $(document).ready(function () {
       // 登入者沒有登入->顯示登入按鈕 隱藏登出
       // console.log(user);
       $("#login").removeClass("d-none");
-      $("#login").addClass("d-block");
       $("#logout").addClass("d-none");
       $("#userphoto").addClass("d-none");
       $("#username").addClass("d-none");
