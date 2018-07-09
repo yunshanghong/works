@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Chat room</title>
-  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="./style.css">
-  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="./node_modules/jquery/dist/jquery.js"></script>
   <script src="./app.js"></script>
 </head>
 
@@ -17,16 +17,18 @@
   <div class="container ">
     <div class="row justify-content-center">
       <div class="col-8 ">
-        <button id="login" class="btn btn-primary">Login</button>
-        <img id="userphoto" class="rounded-circle" width="40">
-        <span id="username"></span>
-        <button id="logout" class="btn btn-primary">Logout</button>
+        <button id="login" class="btn btn-primary d-block mx-auto d-none">Login</button>
+        <div class="d-block mx-auto text-center">
+          <img id="userphoto" class="rounded-circle" width="40">
+          <span id="username"></span>
+          <button id="logout" class="btn btn-primary d-none">Logout</button>
+        </div>
         <h3 class="text-center">迷你聊天室</h3>
         <img id="typing" class="d-none" src="https://data.whicdn.com/images/294614137/original.gif" alt="" width="360px">
         <ul id="chats">
 
         </ul>
-        <input id="message" type="text">
+        <input id="message" type="text" class="d-block mx-auto form-control">
       </div>
     </div>
   </div>

@@ -15,14 +15,14 @@ $(document).ready(function () {
   chatroomRef.collection("users").onSnapshot(function (snapshot) {
     snapshot.docChanges.forEach(function (change) {
       if (change.type === "added") {
-        console.log(change.doc.data());
+        // console.log(change.doc.data());
         var user = change.doc.data();
         var html = `
         <img src="https://media.giphy.com/media/26tP0j6zKn94ZyE1y/giphy.gif" width="40px" class="rounded-circle mb-3" ">: ${user.displayName} 上線囉~~`;
         $("<li>").html(html).appendTo($("#chats"));
       }
       if (change.type === "removed") {
-        console.log(change.doc.data());
+        // console.log(change.doc.data());
         var user = change.doc.data();
         var html = `
         <img src="https://media.giphy.com/media/26tP0j6zKn94ZyE1y/giphy.gif" width="40px" class="rounded-circle mb-3" ">: ${user.displayName} 下線囉~~`;
@@ -53,7 +53,7 @@ $(document).ready(function () {
       var token = result.credential.accessToken;
       // The signed-in user info.
       currentUser = JSON.parse(JSON.stringify(result.user));
-      console.log(currentUser);
+      // console.log(currentUser);
       // ...
     }).catch(function (error) {
       // Handle Errors here.
@@ -69,7 +69,7 @@ $(document).ready(function () {
   // 登出
   $("#logout").click(function () {
     firebase.auth().signOut().then(function () {
-      console.log(currentUser.uid);
+      // console.log(currentUser.uid);
       db.doc(`chatrooms/jG4TjqR7Md7Qsp8Bq4yQ/users/${currentUser.uid}`).delete()
       currentUser = null;
       $("#message").unbind("keypress");
@@ -100,7 +100,9 @@ $(document).ready(function () {
       $("#userphoto").removeClass("d-none");
       $("#username").removeClass("d-none");
       $("#login").addClass("d-none");
+      $("#login").removeClass("d-block");
       $("#logout").removeClass("d-none");
+      // console.log("ok");
       // 當有人打字的時候，修改chatroom.typing的狀態
       $("#message").keypress(function (e) {
         // console.log(e.keyCode);
@@ -108,7 +110,7 @@ $(document).ready(function () {
         chatroomRef.update({
           typing: true
         });
-        console.log(index);
+        // console.log(index);
         if (e.keyCode === 13) {
           // 把訊息送到firebase
           chatsRef.doc(index).set({
@@ -125,6 +127,7 @@ $(document).ready(function () {
       // 登入者沒有登入->顯示登入按鈕 隱藏登出
       // console.log(user);
       $("#login").removeClass("d-none");
+      $("#login").addClass("d-block");
       $("#logout").addClass("d-none");
       $("#userphoto").addClass("d-none");
       $("#username").addClass("d-none");
