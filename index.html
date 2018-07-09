@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chat room</title>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="./app.js"></script>
+</head>
+
+<body>
+
+  <div class="container ">
+    <div class="row justify-content-center">
+      <div class="col-8 ">
+        <button id="login" class="btn btn-primary">Login</button>
+        <img id="userphoto" class="rounded-circle" width="40">
+        <span id="username"></span>
+        <button id="logout" class="btn btn-primary">Logout</button>
+        <h3 class="text-center">迷你聊天室</h3>
+        <img id="typing" class="d-none" src="https://data.whicdn.com/images/294614137/original.gif" alt="" width="360px">
+        <ul id="chats">
+
+        </ul>
+        <input id="message" type="text">
+      </div>
+    </div>
+  </div>
+
+  <!-- firebase embeded -->
+  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDmMu3flj77Ye6OClorAnpD-CxK0aEnmBQ",
+      authDomain: "html-296-yshong.firebaseapp.com",
+      databaseURL: "https://html-296-yshong.firebaseio.com",
+      projectId: "html-296-yshong",
+      storageBucket: "html-296-yshong.appspot.com",
+      messagingSenderId: "134417899432"
+    };
+    firebase.initializeApp(config);
+    var db = firebase.firestore();
+  </script>
+</body>
+
+</html>
